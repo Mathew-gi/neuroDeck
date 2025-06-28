@@ -3,6 +3,8 @@ const next = require("next");
 const dotenv = require("dotenv");
 const axios = require("axios");
 
+console.log('NODE_ENV =*', process.env.NODE_ENV, "*");
+
 dotenv.config();
 
 const dev = process.env.NODE_ENV !== "production";
@@ -37,7 +39,7 @@ app.prepare().then(() => {
       const response = await axios.post(
         "https://openrouter.ai/api/v1/chat/completions",
         {
-          model: "deepseek/deepseek-r1-0528-qwen3-8b",
+          model: "mistralai/mistral-small-3.2-24b-instruct:free",
           messages: [
             {
               role: "system",
